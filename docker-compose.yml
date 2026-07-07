@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: hermes-qdrant
+    restart: unless-stopped
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - hermes-qdrant-storage:/qdrant/storage
+
+  litellm:
+    image: ghcr.io/berriai/litellm:main-latest
+    container_name: hermes-litellm
+    restart: unless-stopped
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./configs/litellm-config.yaml:/app/config.yaml
+      - ~/.hermes/.env:/app/.env
+    command: --config /app/config.yaml --port 4000
+    depends_on:
+      - qdrant
+
+  dashboard:
+    image: ghcr.io/nousresearch/hermes-dashboard:latest
+    container_name: hermes-dashboard
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+    depends_on:
+      - qdrant
+
+volumes:
+  hermes-qdrant-storage:
