@@ -1,0 +1,4 @@
+title: Hermes Agent Bootstrap
+description: 5 минут до первого запуска
+theme: jekyll-theme-cayman
+include: [bootstrap.sh, README.md, docker-compose.yml]
