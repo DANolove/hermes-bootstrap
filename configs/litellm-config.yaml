@@ -1,0 +1,36 @@
+# LiteLLM config — шлюз для subagent'ов с fallback цепочкой
+# Используется: Docker run или systemd
+
+model_list:
+  - model_name: llama-3.3-70b-versatile
+    litellm_params:
+      model: groq/llama-3.3-70b-versatile
+      api_key: os.environ/GROQ_API_KEY
+    model_info:
+      mode: completion
+      supports_function_calling: true
+
+  - model_name: gpt-4o-mini
+    litellm_params:
+      model: github/gpt-4o-mini
+      api_base: https://models.github.ai/inference
+      api_key: os.environ/GITHUB_TOKEN
+    model_info:
+      mode: completion
+      supports_function_calling: true
+
+  - model_name: free
+    litellm_params:
+      model: openrouter/meta-llama/llama-3.2-3b-instruct:free
+      api_key: os.environ/OPENROUTER_API_KEY
+    model_info:
+      mode: completion
+
+litellm_settings:
+  drop_params: true
+  set_verbose: false
+  disable_authentication: true
+
+general_settings:
+  master_key: placeholder
+  database_url: ~/.hermes/litellm.db
