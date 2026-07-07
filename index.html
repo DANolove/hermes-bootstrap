@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hermes Agent — Bootstrap</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d1117; color: #c9d1d9; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+  .card { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 40px; max-width: 600px; text-align: center; }
+  h1 { font-size: 32px; margin-bottom: 8px; background: linear-gradient(135deg, #58a6ff, #3fb950); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .subtitle { color: #8b949e; margin-bottom: 24px; font-size: 14px; }
+  .cmd { background: #0d1117; border: 1px solid #30363d; border-radius: 8px; padding: 16px; font-family: monospace; font-size: 16px; margin-bottom: 24px; display: flex; align-items: center; justify-content: space-between; }
+  .cmd code { color: #f0f6fc; }
+  .copy { background: #1f6feb; color: #fff; border: none; border-radius: 6px; padding: 6px 14px; cursor: pointer; font-size: 13px; }
+  .copy:hover { background: #388bfd; }
+  .features { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; text-align: left; }
+  .feature { background: #0d1117; border-radius: 8px; padding: 12px; font-size: 13px; }
+  .feature strong { color: #58a6ff; }
+  .footer { color: #484f58; font-size: 12px; }
+  .footer a { color: #58a6ff; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>Hermes Agent</h1>
+  <p class="subtitle">5 минут до первого запуска. Одна команда — вся инфраструктура.</p>
+  
+  <div class="cmd">
+    <code>curl -fsSL https://hermes.sh | bash</code>
+    <button class="copy" onclick="navigator.clipboard.writeText('curl -fsSL https://hermes.sh | bash')">📋</button>
+  </div>
+  
+  <div class="features">
+    <div class="feature"><strong>🤖 Hermes Agent</strong><br>CLI для управления агентами</div>
+    <div class="feature"><strong>⚡ Groq</strong><br>Бесплатно, llama-3.3-70b</div>
+    <div class="feature"><strong>🔄 GitHub Models</strong><br>Бесплатный fallback</div>
+    <div class="feature"><strong>🧠 Qdrant</strong><br>Векторная память</div>
+    <div class="feature"><strong>📊 Dashboard</strong><br>Web-интерфейс :9090</div>
+    <div class="feature"><strong>📦 427 skills</strong><br>Навыки на все случаи</div>
+  </div>
+  
+  <div class="footer">
+    <a href="https://github.com/dadalov96/hermes-bootstrap">GitHub</a> · 
+    <a href="https://hermes-agent.nousresearch.com/docs">Документация</a>
+  </div>
+</div>
+</body>
+</html>
